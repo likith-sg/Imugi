@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imugi - Agentic AI for Data Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="light">
+
+    <div id="landing-view" class="active">
+        <div>
+            <nav class="landing-nav">
+                <a href="#" class="nav-logo auth-logo">
+                    <img src="assets/logo.png" alt="Imugi Logo"> Imugi
+                </a>
+                <div class="landing-nav-links">
+                    <a href="#about">About</a>
+                    <a href="#features">Features</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <button id="nav-signin-btn" class="btn btn-secondary">Sign In</button>
+            </nav>
+            <div class="landing-hero anim-on-load">
+                <div class="auth-logo">
+                    <img src="assets/logo.png" alt="Imugi Logo">
+                </div>
+                <h1>Your Agent for Intelligent Data Analysis</h1>
+                <p>Imugi transforms raw data into actionable intelligence. Simply upload your dataset, ask questions using natural language, and receive instant summaries, visualizations, and insights.</p>
+                <button id="get-started-btn" class="btn btn-primary">Get Started Now</button>
+            </div>
+            
+            <section id="about" class="landing-section" style="background: var(--bg-primary);">
+                <div class="about-container anim-on-scroll">
+                    <div class="about-text">
+                        <h2>Go from Data to Decision in Minutes</h2>
+                        <p>Imugi isn't just another analytics tool; it's your personal data scientist. We've built an intuitive, conversational interface on top of a powerful AI agent that demystifies data analysis. Stop wrestling with complex software and start having a conversation with your data. Uncover insights, spot trends, and make data-driven decisions with unprecedented ease and speed.</p>
+                        <ul class="about-highlights">
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>No Code Required</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Instant Visualizations</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Actionable Insights</li>
+                        </ul>
+                    </div>
+                    <div class="about-visual">
+                        <img src="assets/about.png" alt="AI Agent analyzing data">
+                    </div>
+                </div>
+            </section>
+            <section id="features" class="landing-section">
+                <h2 class="anim-on-scroll">Why Imugi?</h2>
+                <div class="features-grid">
+                    <div class="feature-card anim-on-scroll">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        <h3>Natural Language Queries</h3>
+                        <p>No more complex formulas or code. Converse with your data as you would with an expert analyst. Ask questions like "cd show me top 5 products by sales".</p>
+                    </div>
+                    <div class="feature-card anim-on-scroll" style="transition-delay: 0.1s;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        <h3>Instant Visualizations</h3>
+                        <p>From raw numbers to insightful charts in seconds. Imugi automatically generates bar charts, line graphs, and pies to help you visualize trends and patterns.</p>
+                    </div>
+                    <div class="feature-card anim-on-scroll" style="transition-delay: 0.2s;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v4"></path><path d="M4 12v8h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-3"></path><path d="m11 18-3-3 3-3"></path></svg>
+                        <h3>Data Preprocessing</h3>
+                        <p>Clean your data interactively. Ask Imugi to handle missing values, remove duplicates, or filter outliers, and approve the action before it's applied.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="contact" class="landing-section">
+                <h2 class="anim-on-scroll">Get In Touch</h2>
+                <p style="max-width: 700px; margin: auto; color: var(--text-secondary);" class="anim-on-scroll">Have questions or want to learn more? Reach out to our team.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdt3Ds2ObbtLHfXXY8OnxipCHXeuAr4sCL9AAS7qVHJ9WjZ2Q/viewform?usp=dialog" target="_blank" class="btn btn-primary anim-on-scroll" style="margin-top: 2rem;">Contact Us</a>
+                <p style="margin-top: 2rem;">Developed and maintained by <a href="https://likith-sg-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-weight: 500;">Likith S G</a></p>
+            </section>
+            
+            <footer class="landing-footer">
+                <p>Imugi - Agentic AI for Data Analytics - All Rights Reserved © 2025</p>
+            </footer>
+        </div>
+    </div>
+
+    <div id="auth-view" class="page-view">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <img src="assets/logo.png" alt="Imugi Logo">
+                <h1>Imugi</h1>
+            </div>
+            <h2>Sign In</h2>
+            <p class="subtitle">Welcome back! Please enter your details.</p>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Enter your email" required>
+                <input type="password" id="login-password" placeholder="Enter your password" required>
+                <div class="form-options">
+                    <label class="checkbox-label"><input type="checkbox" id="keep-signed-in"> Keep me signed in</label>
+                    <a href="#" class="link">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" style="margin-top:1rem;">Sign In</button>
+            </form>
+            <p class="bottom-text">Don't have an account? <a href="#" id="show-signup-link" class="link">Sign Up</a></p>
+        </div>
+    </div>
+    
+    <div id="signup-view" class="page-view">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <img src="assets/logo.png" alt="Imugi Logo">
+                <h1>Imugi</h1>
+            </div>
+            <h2>Create an Account</h2>
+            <p class="subtitle">Start your data journey with Imugi.</p>
+            <form id="signup-form">
+                <input type="text" id="signup-username" placeholder="Choose a username" required>
+                <input type="email" id="signup-email" placeholder="Enter your email" required>
+                <input type="password" id="signup-password" placeholder="Create a password" required>
+                <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
+                <button type="submit" class="btn btn-primary btn-full" style="margin-top: 1rem;">Create Account</button>
+            </form>
+            <p class="bottom-text">Already have an account? <a href="#" id="show-login-link" class="link">Sign In</a></p>
+        </div>
+    </div>
+
+    <div id="app-wrapper" class="app-wrapper">
+        <nav class="global-navbar">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <img src="assets/logo.png" alt="Imugi Logo"> Imugi
+                </div>
+            </div>
+            <div class="nav-right">
+                <button id="generate-report-btn" class="btn btn-secondary">Generate Report</button>
+                <button id="theme-toggle-btn" class="btn btn-secondary" style="padding: 0.5rem;">
+                    <svg class="theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg class="theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <div class="user-profile">
+                    <div id="user-avatar" class="user-avatar">U</div>
+                    <div class="profile-dropdown">
+                        <div class="user-info">
+                           <div id="profile-username" class="username">Username</div>
+                           <div id="profile-email" class="email">user@example.com</div>
+                        </div>
+                        <a id="account-info-btn">Account Information</a>
+                        <a id="change-password-btn">Change Password</a>
+                        <a id="logout-btn" style="color: #ef4444;">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="dashboard-wrapper">
+            <aside class="control-panel">
+                <div class="accordion-item open">
+                    <button class="accordion-header">Data Source</button>
+                    <div class="accordion-content">
+                        <label for="file-upload" class="btn btn-primary">Upload File(s)</label>
+                        <input type="file" id="file-upload" accept=".csv, .xls, .xlsx" multiple style="display: none;">
+                        <div class="toggle-switch">
+                            <span>File is Pre-processed</span>
+                            <label class="switch"><input type="checkbox" id="preprocess-toggle"><span class="slider"></span></label>
+                        </div>
+                        <div id="dataset-list" style="margin-top: 1.5rem;"></div>
+                    </div>
+                </div>
+                <div id="suggestions-accordion" class="accordion-item" style="display:none;">
+                    <button class="accordion-header">Prompt Suggestions</button>
+                    <div id="prompt-suggestions" class="accordion-content"></div>
+                </div>
+            </aside>
+            <main id="workspace" class="workspace">
+                <nav class="tab-nav">
+                    <button class="tab-btn active" data-target="terminal-pane">Terminal</button>
+                    <button class="tab-btn" data-target="inspector-pane">Data Inspector</button>
+                </nav>
+                <div class="tab-content">
+                    <div id="terminal-pane" class="tab-pane active">
+                        <div id="terminal-window" class="terminal-window">
+                            <div class="terminal-header">
+                                <div class="header-buttons">
+                                    <span class="btn-red" id="terminal-close"></span><span class="btn-yellow" id="terminal-minimize"></span><span class="btn-green" id="terminal-maximize"></span>
+                                </div>
+                            </div>
+                            <div id="terminal-body" class="terminal-body"></div>
+                        </div>
+                        <button id="reopen-terminal-btn" class="btn reopen-terminal-btn">Re-open Terminal</button>
+                    </div>
+                    <div id="inspector-pane" class="tab-pane"></div>
+                </div>
+            </main>
+        </div>
+        <footer class="app-footer">Imugi - Agentic AI for Data Analytics - All Rights Reserved © 2025</footer>
+    </div>
+    
+    <div id="report-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header"><span>Generated Report Preview</span><button id="close-report-btn" class="btn btn-secondary" style="width:auto; padding: 0.5rem 1rem;">Close</button></div>
+            <div id="report-slides" class="modal-body">
+                <div class="loading-overlay" style="display: flex;"><span>Generating...</span></div>
+            </div>
+            <div class="modal-footer">
+                <div>
+                    <button id="prev-slide-btn" class="btn btn-secondary">Previous</button>
+                    <span id="slide-counter" style="margin: 0 1rem; color: var(--text-secondary);"></span>
+                    <button id="next-slide-btn" class="btn btn-secondary">Next</button>
+                </div>
+                <div class="export-dropdown">
+                    <button id="export-btn" class="btn btn-primary">
+                        Export to
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708 .708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>
+                    </button>
+                    <div class="export-options">
+                        <a href="#" id="export-pdf">PDF</a>
+                        <a href="#" id="export-ppt">PowerPoint (.pptx)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="profile-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header"><span>Account Information</span><button class="close-modal-btn btn btn-secondary" style="width:auto; padding: 0.5rem 1rem;">Close</button></div>
+            <div id="profile-modal-body" class="modal-body"><p><strong>Username:</strong> <span id="modal-username-display"></span></p><p><strong>Email:</strong> <span id="modal-email-display"></span></p></div>
+        </div>
+    </div>
+    
+    <div id="password-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header"><span>Change Password</span><button class="close-modal-btn btn btn-secondary" style="width:auto; padding: 0.5rem 1rem;">Close</button></div>
+            <form id="change-password-form">
+                <div class="modal-body">
+                    <label for="old-password">Old Password</label>
+                    <input type="password" id="old-password" required style="width: 100%; padding: 0.8rem 1rem; margin-top: 0.5rem; margin-bottom: 1rem; border-radius: 0.375rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password" required style="width: 100%; padding: 0.8rem 1rem; margin-top: 0.5rem; margin-bottom: 1rem; border-radius: 0.375rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
+                    <label for="confirm-new-password">Confirm New Password</label>
+                    <input type="password" id="confirm-new-password" required style="width: 100%; padding: 0.8rem 1rem; margin-top: 0.5rem; margin-bottom: 1rem; border-radius: 0.375rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
+                </div>
+                <div class="modal-footer"><button type="submit" class="btn btn-primary">Update Password</button></div>
+            </form>
+        </div>
+    </div>
+
+    <div id="notification-toast"></div>
+
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

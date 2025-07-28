@@ -6,7 +6,7 @@ import { getGeminiResponse } from './api.js';
 
 // --- App Initialization & UI Animations ---
 document.addEventListener('DOMContentLoaded', () => {
-    Chart.register(Chart.registry.plugins.get('datalabels'));
+    Chart.register(ChartDataLabels);
     const sessionEmail = sessionStorage.getItem('imugiSessionEmail') || localStorage.getItem('imugiSessionEmail');
     if (sessionEmail) {
         const userAccountJSON = localStorage.getItem(sessionEmail);

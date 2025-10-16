@@ -12,7 +12,8 @@ export default async function handler(request, response) {
 
   // 3. Forward the user's prompt to the Gemini API
   try {
-    const geminiResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`, {
+    // --- THIS IS THE FINAL CHANGE ---
+    const geminiResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro-latest:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
